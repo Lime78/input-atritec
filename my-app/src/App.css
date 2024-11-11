@@ -1,68 +1,32 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
+.App {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  padding: 20px;
 }
 
 h1 {
-  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
   margin-top: 20px;
-  font-size: 2rem;
-  color: #333;
 }
 
-.Image {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 400px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.section {
+  margin-bottom: 40px;
 }
 
-.Image p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #555;
+.checkbox-group {
+  margin: 10px 0;
 }
 
-input[type="checkbox"] {
+.checkbox-group label {
   margin-right: 10px;
-  transform: scale(1.2);
-  vertical-align: middle;
-}
-
-input[type="text"], input[type="checkbox"] {
-  padding: 8px;
-  margin-bottom: 10px;
 }
 
 input[type="text"] {
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 8px;
-}
-
-input[type="text"]:focus {
-  outline: none;
-  border-color: #4d90fe;
-}
-
-@media screen and (max-width: 600px) {
-  .Image {
-    width: 90%;
-    padding: 15px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
+  margin-top: 10px;
+  padding: 5px;
+  width: 200px;
 }
