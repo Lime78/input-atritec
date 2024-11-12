@@ -1,7 +1,12 @@
-.App {
-  font-family: Arial, sans-serif;
+body {
+  background: linear-gradient(to right, #103549, #2c5365);
+}
+  .App {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   padding: 20px;
-  max-width: 800px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -9,7 +14,7 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  width: 100px;
+  width: 20em;
   height: auto;
   z-index: 1000; 
 }
@@ -22,22 +27,23 @@
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 3em;
+  font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
-  color: #4CAF50;
+  color: #198B74;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-top: 20px;
-  color: #333;
+  color: #1CB797;
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 10px;
-  color: #555;
+  color: #1CB797;
 }
 
 .section {
@@ -50,12 +56,20 @@ h3 {
   flex-direction: column;
 }
 
-.radio-group label {
+.radio-group p {
   margin-right: 10px;
   margin-bottom: 5px;
   display: flex;
   align-items: center;
   font-size: 1em;
+  color: #ffffff;
+}
+.radio-group label {
+  margin-right: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 1,5em;
 }
 
 input[type="radio"] {
@@ -99,9 +113,10 @@ input[type="radio"], input[type="checkbox"] {
   margin-right: 10px;
 }
 
-h3, label {
+label {
   font-size: 1.1em;
-  color: #444;
+  color: #ffffff;
+  gap: 15px;
 }
 
 input[type="radio"]:checked, input[type="checkbox"]:checked {

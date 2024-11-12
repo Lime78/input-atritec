@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(to right, #103549, #2c5365);
+  }
+
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 20em;
+    height: auto;
+    z-index: 1000; 
+  }
+  
+  .landing-page {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #222020; 
+    color: white;
+    padding: 20px;
+}
+
+.header-row {
+    flex-grow: 1;
+    padding: 20px;
+}
