@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import symbol from '../assets/symbol.png'
 import loggavit from '../assets/loggavit.png'
-import './Annalering.css';
+import './Landing.css';
 
 const App = () => {
   const [checkboxes, setCheckboxes] = useState({
@@ -14,10 +14,15 @@ const App = () => {
     colorize: null, 
   });
 
-  const [ärSynlig, setÄrsynlig] = useState(false);
+  const [inputs, setInputs] = useState(['']);
+
+  const addInput = () => {
+    setInputs([...inputs, '']);
+  };
+  const [isSynlig, setIssynlig] = useState(false);
 
   const toggleCirrusVisibility = () => {
-    setÄrsynlig(!ärSynlig);
+    setIssynlig(!isSynlig);
   };
 
   const [isVisa, setIsVisa] = useState(false);
@@ -25,7 +30,6 @@ const App = () => {
   const toggleWebVisibility = () => {
     setIsVisa(!isVisa);
   };
-
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -43,18 +47,20 @@ const App = () => {
 
   return (
     <div className="App">
-
       <img src={loggavit} alt="Logo" className="logo" />
-      
+
       <div className="section-annalering">
         <h2>Annalering</h2>
-       {/*lägger in all infp om bdl spår och tid */}
-        {/* <div className='Bdl-split'>
-      <input type="text" placeholder="Bdl" />
+       {/*lägger in all info om bdl spår och tid */}
+        <div className='Bdl-split'>
+        {inputs.map((input, index) => (
+        <input key={index} type="text" placeholder="Bdl" />
+      ))}
+      <button onClick={addInput}>+</button>
       <input type="text" placeholder="Spår" />
       <input type="time" placeholder="Tid" />
-      </div> */}
-        <button className='button' onClick={toggleSectionsVisibility}>
+      </div>
+        <button className='button'onClick={toggleSectionsVisibility}>
           {isVisible ? 'Hide info' : 'Show info'}
         </button>
 
@@ -170,11 +176,44 @@ const App = () => {
                 />
               </label>
             </div>
+            <div className="radio-group">
+            <h3>Export camera-level images for formula annotation</h3>
+            <label>
+              Camera ID (0-5)
+              <input
+                type="radio"
+                name="exportCameraImages"
+                checked={checkboxes.exportCameraImages === 'Camera ID'}
+                onChange={() => handleRadioChange('exportCameraImages', 'Camera ID')}
+              />
+            </label>
+            <label>
+              Rotation for the image of the camera
+              <input
+                type="radio"
+                name="exportCameraImages"
+                checked={checkboxes.exportCameraImages === 'Rotation'}
+                onChange={() => handleRadioChange('exportCameraImages', 'Rotation')}
+              />
+            </label>
+            <label>
+              Which camera: back/front/both
+              <input
+                type="radio"
+                name="exportCameraImages"
+                checked={checkboxes.exportCameraImages === 'Which camera'}
+                onChange={() => handleRadioChange('exportCameraImages', 'Which camera')}
+              />
+            </label>
+          </div>
+          <div className="radio-group">
+            <h3>Image resolution for output</h3>
+            <label>Width x Height</label>
+            <input type="text" placeholder="Width x Height" />
+          </div>
           </div>
         )}
       </div>
-
-
 
       <div className="section-cirrus">
       <h2>Cirrus</h2>
@@ -185,10 +224,10 @@ const App = () => {
       <input type="time" placeholder="Tid" />
       </div> */}
       <button className='button' onClick={toggleCirrusVisibility}>
-        {ärSynlig ? 'Hide info' : 'Show info'}
+        {isSynlig ? 'Hide info' : 'Show info'}
       </button>
 
-      {ärSynlig && (
+      {isSynlig && (
         <div className='cirrus-info'>
           <div className="radio-group">
             <h3>Trigger distance between images for output</h3>
@@ -210,12 +249,6 @@ const App = () => {
                 onChange={() => handleRadioChange('distance', 10)}
               />
             </label>
-          </div>
-
-          <div className="radio-group">
-            <h3>Image resolution for output</h3>
-            <label>Width x Height</label>
-            <input type="text" placeholder="Width x Height" />
           </div>
 
           <div className="radio-group">
@@ -267,37 +300,6 @@ const App = () => {
                 name="export360"
                 checked={checkboxes.export360 === 'No'}
                 onChange={() => handleRadioChange('export360', 'No')}
-              />
-            </label>
-          </div>
-
-          <div className="radio-group">
-            <h3>Export camera-level images for formula annotation</h3>
-            <label>
-              Camera ID (0-5)
-              <input
-                type="radio"
-                name="exportCameraImages"
-                checked={checkboxes.exportCameraImages === 'Camera ID'}
-                onChange={() => handleRadioChange('exportCameraImages', 'Camera ID')}
-              />
-            </label>
-            <label>
-              Rotation for the image of the camera
-              <input
-                type="radio"
-                name="exportCameraImages"
-                checked={checkboxes.exportCameraImages === 'Rotation'}
-                onChange={() => handleRadioChange('exportCameraImages', 'Rotation')}
-              />
-            </label>
-            <label>
-              Which camera: back/front/both
-              <input
-                type="radio"
-                name="exportCameraImages"
-                checked={checkboxes.exportCameraImages === 'Which camera'}
-                onChange={() => handleRadioChange('exportCameraImages', 'Which camera')}
               />
             </label>
           </div>
@@ -520,9 +522,9 @@ const App = () => {
       </div>
       )}
       </div>
-      
     </div>
-  );
+  
+);
 } 
 
 export default App;
