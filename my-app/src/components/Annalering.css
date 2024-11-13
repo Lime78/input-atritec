@@ -1,6 +1,13 @@
 body {
   background: linear-gradient(to right, #103549, #2c5365);
 }
+
+.Bdl-split{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
   .App {
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
@@ -8,28 +15,50 @@ body {
   padding: 20px;
   max-width: 1600px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.section-cirrus, .section-web360, .section-annalering {
+  flex: 1;
+  margin: 10px;
+  margin-left: 4em;
+}
+
+.section-cirrus div, .section-web360 div, .section-annalering div {
+  margin-bottom: 10px;
+}
+
+.annalering-info, .cirrus-info, .web-info {
+  background-color: #103549;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .logo {
   position: fixed;
   top: 10px;
-  left: 10px;
-  width: 20em;
+  left: 5px;
+  width: 12em;
   height: auto;
   z-index: 1000; 
 }
 
-.train-img {
-  width: 100%;
-	height: 50vh;
-	object-fit: cover;
-	flex-wrap: wrap;
+.button {
+  padding: 10px 20px;
+  background-color: #1CB797;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.2em;
+  cursor: pointer;
 }
 
 h1 {
   font-size: 3em;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   text-align: center;
   color: #198B74;
 }
@@ -74,7 +103,7 @@ h3 {
 
 input[type="radio"] {
   margin-right: 8px;
-  accent-color: #4CAF50; /* Custom color for radio button */
+  accent-color: #4CAF50; 
 }
 
 input[type="text"] {
@@ -83,8 +112,8 @@ input[type="text"] {
   width: 100%;
   max-width: 300px;
   font-size: 1em;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
 }
 
 input[type="text"]:focus {
@@ -143,7 +172,6 @@ section {
   margin-bottom: 20px;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
   .App {
     padding: 10px;
@@ -163,5 +191,9 @@ section {
 
   input[type="text"] {
     width: 100%;
+  }
+
+  .logo {
+    width: 3em;
   }
 }
