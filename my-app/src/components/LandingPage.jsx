@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import symbol from '../assets/symbol.png'
 import loggavit from '../assets/loggavit.png'
+import loggagreen from '../assets/loggagreen.png' 
+import pattern from '../assets/pattern.png' 
 import './Landing.css';
 
 const App = () => {
@@ -14,23 +16,34 @@ const App = () => {
     colorize: null, 
   });
 
+  //Search bar
+    // const [search, setSearch] = useState('');
+    // const [searchResults, setSearchResults] = useState([]);
+    // const [searchResultsVisible, setSearchResultsVisible] = useState(false);
+
+
+  //add input fields button
   const [inputs, setInputs] = useState(['']);
 
   const addInput = () => {
     setInputs([...inputs, '']);
   };
+
+  // show info button
   const [isSynlig, setIssynlig] = useState(false);
 
   const toggleCirrusVisibility = () => {
     setIssynlig(!isSynlig);
   };
 
+  //show info button
   const [isVisa, setIsVisa] = useState(false);
 
   const toggleWebVisibility = () => {
     setIsVisa(!isVisa);
   };
 
+  //show info button
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleSectionsVisibility = () => {
@@ -47,21 +60,25 @@ const App = () => {
 
   return (
     <div className="App">
-      <img src={loggavit} alt="Logo" className="logo" />
+      <div className="section-search">
+        <input type="text" placeholder="Search" />
+      </div>
+      <img src={loggagreen} alt="Logo" className="logo" />
+      <img src={pattern} alt="Pattern" className="pattern" />
+
+      <div className='sidebar'>
+      <div className='Bdl-split'>
+        {inputs.map((input, index) => (
+        <input key={index} type="text" placeholder="Bdl Spår Tid" />
+      ))}
+      <button className="button-add" onClick={addInput}>+</button>
+      </div>
 
       <div className="section-annalering">
         <h2>Annalering</h2>
-       {/*lägger in all info om bdl spår och tid */}
-        <div className='Bdl-split'>
-        {inputs.map((input, index) => (
-        <input key={index} type="text" placeholder="Bdl" />
-      ))}
-      <button onClick={addInput}>+</button>
-      <input type="text" placeholder="Spår" />
-      <input type="time" placeholder="Tid" />
       </div>
         <button className='button'onClick={toggleSectionsVisibility}>
-          {isVisible ? 'Hide info' : 'Show info'}
+          {isVisible ? 'Hide Info' : 'View Form'}
         </button>
 
         {isVisible && (
@@ -213,20 +230,15 @@ const App = () => {
           </div>
           </div>
         )}
-      </div>
+      {/* </div> */}
 
       <div className="section-cirrus">
       <h2>Cirrus</h2>
-      {/*lägger in all infp om bdl spår och tid */}
-        {/* <div className='Bdl-split'>
-      <input type="text" placeholder="Bdl" />
-      <input type="text" placeholder="Spår" />
-      <input type="time" placeholder="Tid" />
-      </div> */}
-      <button className='button' onClick={toggleCirrusVisibility}>
-        {isSynlig ? 'Hide info' : 'Show info'}
-      </button>
 
+      <button className='button' onClick={toggleCirrusVisibility}>
+        {isSynlig ? 'Hide Info' : 'View Form'}
+      </button>
+      
       {isSynlig && (
         <div className='cirrus-info'>
           <div className="radio-group">
@@ -416,14 +428,9 @@ const App = () => {
 
      <div className="section-web360">
         <h2>Web360</h2>
-        {/*lägger in all infp om bdl spår och tid */}
-        {/* <div className='Bdl-split'>
-      <input type="text" placeholder="Bdl" />
-      <input type="text" placeholder="Spår" />
-      <input type="time" placeholder="Tid" />
-      </div> */}
+    
         <button className="button" onClick={toggleWebVisibility}>
-        {isVisa ? 'Hide info' : 'Show info'}
+        {isVisa ? 'Hide Info' : 'View Form'}
       </button>
 
       {isVisa && (
@@ -521,6 +528,7 @@ const App = () => {
       </div>
       </div>
       )}
+      </div>
       </div>
     </div>
   
