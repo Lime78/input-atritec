@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to right, #103549, #2c5365);
+  background: linear-gradient(to right, #103549, #326178);
 }
 
 .Bdl-split {
@@ -18,19 +18,27 @@ body {
 
 }
 
-.Bdl-split button {
-  width: 24px;
-  height: 24px;
+.button-group{
+  display: flex;
+  gap: 20px;
+}
+
+.button-add, .button-remove {
+  width: 26px;
+  height: 26px;
   cursor: pointer;
   background-color: #424242;
   color: white;
 }
 
+.button-add:hover, .button-remove:hover {
+  background-color: #198B74;
+}
+
 .section-search {
   position: absolute;
-  top: 0; 
-  left: 50%; 
-  transform: translateX(-50%); 
+  top: 5px; 
+  left: 370px; 
   z-index: 1000; 
 }
 
@@ -58,7 +66,7 @@ body {
   width: 225px; 
   padding: 60px;
   position: fixed; 
-  background-color: rgb(31, 30, 30);
+  background-color: rgb(29, 1, 1);
   top: 0;
   left: 0;
   height: 100%; 
@@ -74,7 +82,7 @@ body {
 }
 
 .annalering-info, .cirrus-info, .web-info {
-  background-color: #103549;
+  background-color: rgb(42, 41, 41);
   padding: 10px;
   border-radius: 20px;
 }
@@ -90,24 +98,23 @@ body {
 /* logga grön */
 .logo {
   position: fixed;
-  top: 10px;
-  right: 30px;
-  width: 15em;
+  top: 15px;
+  left: 30px;
+  width: 150px;
   height: auto;
   z-index: 1000; 
 }
 
-/* logga vit */
-/* .logo {
+/* .symbol {
   position: fixed;
   top: 10px;
   left: 5px;
-  width: 12em;
+  width: 3em;
   height: auto;
   z-index: 1000; 
 } */
 
-.button {
+/* .button {
   padding: 8px 16px;
   background-color: #424242;
   color: #ffffff;
@@ -115,11 +122,11 @@ body {
   border-radius: 80px;
   font-size: 1em;
   cursor: pointer;
-}
+} */
 
-.button:hover {
+/* .button:hover {
   background-color: #198B74;
-}
+} */
 
 h1 {
   font-size: 3em;
@@ -131,12 +138,13 @@ h1 {
 
 h2 {
   font-size: 2em;
-  margin-top: 20px;
+  margin-top: 50px;
   color: #424242;
-  
 }
+
 h2:hover {
   color: #198B74;
+  cursor: pointer;
 }
 
 h3 {
@@ -267,33 +275,3 @@ section {
     width: 3em;
   }
 }
-
-/* style ifall vi inte vill ha sidebar */
-
-  /* .App {
-  font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  padding: 20px;
-  max-width: 1600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.section-cirrus, .section-web360, .section-annalering {
-  flex: 1;
-  margin: 10px;
-  margin-left: 5em;
-}
-
-.section-cirrus div, .section-web360 div, .section-annalering div {
-  margin-bottom: 10px;
-}
-
-.annalering-info, .cirrus-info, .web-info {
-  background-color: #103549;
-  padding: 10px;
-  border-radius: 20px;
-} */

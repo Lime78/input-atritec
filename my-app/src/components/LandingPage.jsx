@@ -3,6 +3,7 @@ import symbol from '../assets/symbol.png'
 import loggavit from '../assets/loggavit.png'
 import loggagreen from '../assets/loggagreen.png' 
 import pattern from '../assets/pattern.png' 
+import greenwhite from '../assets/greenwhite.png' 
 import './Landing.css';
 
 const App = () => {
@@ -27,6 +28,10 @@ const App = () => {
 
   const addInput = () => {
     setInputs([...inputs, '']);
+  };
+
+  const removeInput = () => {
+    setInputs(inputs.slice(0, inputs.length - 1));
   };
 
   // show info button
@@ -67,19 +72,23 @@ const App = () => {
       <img src={pattern} alt="Pattern" className="pattern" />
 
       <div className='sidebar'>
-      <div className='Bdl-split'>
+
+        {/* Bandel button och input*/}
+
+      {/* <div className='Bdl-split'>
         {inputs.map((input, index) => (
         <input key={index} type="text" placeholder="Bdl Spår Tid" />
       ))}
+      <div className="button-group">
       <button className="button-add" onClick={addInput}>+</button>
+      <button className="button-remove" onClick={removeInput}>-</button>
       </div>
+      </div> */}
 
       <div className="section-annalering">
-        <h2>Annalering</h2>
+        <h2 onClick={toggleSectionsVisibility}>
+        {isVisible ? 'Annalering' : 'Annalering'}</h2>
       </div>
-        <button className='button'onClick={toggleSectionsVisibility}>
-          {isVisible ? 'Hide Info' : 'View Form'}
-        </button>
 
         {isVisible && (
           <div className='annalering-info'>
@@ -233,12 +242,9 @@ const App = () => {
       {/* </div> */}
 
       <div className="section-cirrus">
-      <h2>Cirrus</h2>
+      <h2 onClick={toggleCirrusVisibility}>
+      {isSynlig ? 'Cirrus' : 'Cirrus'} </h2>
 
-      <button className='button' onClick={toggleCirrusVisibility}>
-        {isSynlig ? 'Hide Info' : 'View Form'}
-      </button>
-      
       {isSynlig && (
         <div className='cirrus-info'>
           <div className="radio-group">
@@ -427,11 +433,8 @@ const App = () => {
 
 
      <div className="section-web360">
-        <h2>Web360</h2>
-    
-        <button className="button" onClick={toggleWebVisibility}>
-        {isVisa ? 'Hide Info' : 'View Form'}
-      </button>
+        <h2 onClick={toggleWebVisibility}>
+        {isVisa ? 'Web360' : 'Web360'} </h2>
 
       {isVisa && (
         <div className='web-info'>
@@ -472,10 +475,10 @@ const App = () => {
         <label>
           Default Yes
         <input 
-        type="radio"
-        name="Filtering"
-        checked={checkboxes.Filtering === 'Yes'}
-        onChange={() => handleRadioChange('Filtering', 'Yes')}
+          type="radio"
+          name="Filtering"
+          checked={checkboxes.Filtering === 'Yes'}
+          onChange={() => handleRadioChange('Filtering', 'Yes')}
         />
         </label>
       </div>
