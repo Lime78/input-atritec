@@ -3,7 +3,7 @@ import symbol from '../assets/symbol.png'
 import loggavit from '../assets/loggavit.png'
 import loggagreen from '../assets/loggagreen.png' 
 import pattern from '../assets/pattern.png' 
-import greenwhite from '../assets/greenwhite.png' 
+import greenwhite from '../assets/greenwhite.png'
 import './Landing.css';
 
 const App = () => {
@@ -19,11 +19,10 @@ const App = () => {
 
   //Search bar
     // const [search, setSearch] = useState('');
-    // const [searchResults, setSearchResults] = useState([]);
-    // const [searchResultsVisible, setSearchResultsVisible] = useState(false);
+    // const [searchResults, setSearchResults] = useState([]);    
+    // const [searchResultsVisible, setSearchResultsVisible] = useState(false);    
 
 
-  //add input fields button
   const [inputs, setInputs] = useState(['']);
 
   const addInput = () => {
@@ -34,21 +33,18 @@ const App = () => {
     setInputs(inputs.slice(0, inputs.length - 1));
   };
 
-  // show info button
   const [isSynlig, setIssynlig] = useState(false);
 
   const toggleCirrusVisibility = () => {
-    setIssynlig(!isSynlig);
+    setIssynlig(!isSynlig);    
   };
 
-  //show info button
   const [isVisa, setIsVisa] = useState(false);
 
   const toggleWebVisibility = () => {
-    setIsVisa(!isVisa);
+    setIsVisa(!isVisa);    
   };
 
-  //show info button
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleSectionsVisibility = () => {
@@ -62,7 +58,6 @@ const App = () => {
     }));
   };
 
-
   return (
     <div className="App">
       <div className="section-search">
@@ -71,7 +66,7 @@ const App = () => {
       <img src={loggagreen} alt="Logo" className="logo" />
       <img src={pattern} alt="Pattern" className="pattern" />
 
-      <div className='sidebar'>
+      <div className='sidebar'> 
 
         {/* Bandel button och input*/}
 
@@ -87,7 +82,7 @@ const App = () => {
 
       <div className="section-annalering">
         <h2 onClick={toggleSectionsVisibility}>
-        {isVisible ? 'Annalering' : 'Annalering'}</h2>
+        {isVisible ? 'Annotation' : 'Annotation'}</h2>
       </div>
 
         {isVisible && (
